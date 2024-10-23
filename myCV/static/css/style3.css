@@ -212,17 +212,13 @@ body {
 
 
 .photoCont {
-    min-width: 12rem;
     width: 12rem;
-    min-height: 12rem;
     height: 12rem;
     overflow: hidden;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 3rem;
-    padding-left: 3rem;
     margin: 4rem;
 }
 
@@ -237,6 +233,7 @@ body {
 .about img {
     border-radius: 50%;
     height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 

@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSection = 0;
     let wheelFlag = true;
     let lastTouchY = 0;
-    let skillsIndex = 0;
     let movedDistance = 0;
     const root = document.documentElement;
     const vars = getComputedStyle(root);
     let resizeTimeout;
+    let maxDistance;
 
     function convertRemToPixels(remNum) {
         return remNum * parseFloat(vars.fontSize)
@@ -29,9 +29,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillMargin = 2 * convertRemToPixels(parseFloat(vars.getPropertyValue('--skill-margin')))
 
     menu.addEventListener('click', function() {
-        rightLinks.classList.toggle('show');
         naviBar.classList.toggle('change');
-        menu.classList.toggle('open');
+        setTimeout(() => {
+            rightLinks.classList.toggle('show');
+            menu.classList.toggle('open');
+        }, 250)
+    })
+
+    navLinks.forEach(navLink => {
+        navLink.addEventListener('click', function () {
+            if (window.innerWidth <= 800) {
+                rightLinks.classList.toggle('show');
+                menu.classList.toggle('open');
+                setTimeout(() => {
+                    naviBar.classList.toggle('change');
+                }, 250)
+            }
+        })
     })
 
     const updateSections = () => {
@@ -128,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     rightArrowDisplay();
-    // window.addEventListener('resize', rightArrowDisplay(), console.log('resize'));
 
     window.addEventListener('resize', function(event) {
         clearTimeout(resizeTimeout);
@@ -136,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Window resized to: ' + window.innerWidth + ' x ' + window.innerHeight);
             rightArrowDisplay();
             updateSections();
-        }, 200);  // funkcja zostanie wykonana 200 ms po zakończeniu zmiany rozmiaru
+        }, 200);
         event.preventDefault();
     });
 

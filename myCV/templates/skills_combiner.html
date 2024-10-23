@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <link rel="stylesheet" href="{% static 'css/picker_style.css' %}">
+</head>
+<body>
+   <div class="container">
+        <h1>My Skills</h1>
+        <div class="skill-picker">
+            <button class="skill-button" data-skill="programming">Programming Languages</button>
+            <button class="skill-button" data-skill="frameworks">Frameworks and Technologies</button>
+            <button class="skill-button" data-skill="creativity">Creativity</button>
+            <button class="skill-button" data-skill="learning">Quick Learning</button>
+        </div>
+        <div id="description" class="description">
+            <p>Select skills and click the button to see the description.</p>
+        </div>
+    </div>
+    <script src="{% static 'js/picker_script.js' %}"></script>
+</body>
+</html>

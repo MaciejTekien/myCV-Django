@@ -48,6 +48,8 @@ def home(request):
         form = ContactForm()
     return render(request, 'index2.html', {'form': form})
 
+def picker(request):
+    return render(request, 'skills_combiner.html')
 # def home(request):
 #     return render(request, 'index2.html')
 

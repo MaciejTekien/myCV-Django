@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             arrowUp.style.display = currentSection > 0 ? 'flex' : 'none';
             arrowDown.style.display = currentSection < sections.length - 1 ? 'flex' : 'none';
         } else {
+            sections[currentSection].scrollIntoView({behavior: 'smooth'});
             arrowUp.style.display = 'none';
             arrowDown.style.display = 'none';
         }

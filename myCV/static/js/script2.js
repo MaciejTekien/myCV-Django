@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             arrowUp.style.display = currentSection > 0 ? 'flex' : 'none';
             arrowDown.style.display = currentSection < sections.length - 1 ? 'flex' : 'none';
         } else {
-            sections[currentSection].scrollIntoView({behavior: 'smooth'});
             arrowUp.style.display = 'none';
             arrowDown.style.display = 'none';
         }
@@ -205,17 +204,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetSection = parseInt(link.getAttribute('data-section'));
-            if (!isNaN(targetSection) && targetSection >= 0 && targetSection < sections.length) {
-                currentSection = targetSection;
-                updateSections();
-            }
+    if (window.innerWidth > 800) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = parseInt(link.getAttribute('data-section'));
+                if (!isNaN(targetSection) && targetSection >= 0 && targetSection < sections.length) {
+                    currentSection = targetSection;
+                    updateSections();
+                }
+            });
         });
-    });
+    }
 
     window.addEventListener('wheel', handleScroll);
     window.addEventListener('touchstart', function(e) {

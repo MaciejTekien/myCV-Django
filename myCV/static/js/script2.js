@@ -49,9 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const updateSections = () => {
-        sections[currentSection].scrollIntoView({ behavior: 'smooth' });
-        arrowUp.style.display = currentSection > 0 ? 'flex' : 'none';
-        arrowDown.style.display = currentSection < sections.length - 1 ? 'flex' : 'none';
+        if (window.innerWidth > 800) {
+            sections[currentSection].scrollIntoView({behavior: 'smooth'});
+            arrowUp.style.display = currentSection > 0 ? 'flex' : 'none';
+            arrowDown.style.display = currentSection < sections.length - 1 ? 'flex' : 'none';
+        } else {
+            arrowUp.style.display = 'none';
+            arrowDown.style.display = 'none';
+        }
     };
 
     arrowUp.addEventListener('click', () => {

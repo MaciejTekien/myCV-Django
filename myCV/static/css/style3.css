@@ -213,6 +213,8 @@ body {
 
 .photoCont {
     width: 12rem;
+    min-width: 12rem;
+    min-height: 12rem;
     height: 12rem;
     overflow: hidden;
     border-radius: 50%;
@@ -629,6 +631,11 @@ body {
         --block-height: 10rem;
         --block-width: 6rem;
         --skill-margin: 0.5rem;
+    }
+
+    body {
+        overflow: auto;
+        overflow-x: hidden;
     }
 
 

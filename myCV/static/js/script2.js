@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (direction === 'right') {
             movedDistance = movedDistance - moveDistance;
-            maxDistance = -(skills.length * (skillWidth + skillMargin)) + skillsContainer.clientWidth
+            maxDistance = -(skills.length * (skillWidth + skillMargin)) + (skillsContainer.clientWidth - (skillWidth / 2))
             if (movedDistance <= maxDistance) {
                 movedDistance = maxDistance;
                 arrowRight.style.display = 'none';

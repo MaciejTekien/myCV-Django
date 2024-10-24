@@ -83,10 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (e.type === 'wheel') {
             delta = e.deltaY;
-        } else if (e.type === 'touchmove') {
-            delta = e.touches[0].clientY - lastTouchY;
-            lastTouchY = e.touches[0].clientY;
         }
+        // else if (e.type === 'touchmove') {
+        //     delta = e.touches[0].clientY - lastTouchY;
+        //     lastTouchY = e.touches[0].clientY;
+        // }
 
         if (e.deltaY > 0) {
             if (currentSection < sections.length - 1) {
